@@ -1,0 +1,31 @@
+# 存储配置
+storage:
+  sqlite_path: "./data/memory.db"
+  chroma_path: "./data/chroma"
+
+# API 配置
+api:
+  embedding:
+    provider: "openai"
+    api_key: "your-openai-api-key"
+    model: "text-embedding-3-small"
+  deepseek:
+    api_key: "your-deepseek-api-key"
+    model: "deepseek-chat"
+
+# 文件注入配置
+injection:
+  auto_inject: true
+  targets:
+    - type: "cursor"
+      path: ".cursorrules"
+    - type: "claude"
+      path: ".claude/CLAUDE.md"
+    - type: "generic"
+      path: "AGENTS.md"
+
+# 自动提炼配置
+extraction:
+  auto_extract: true
+  trigger_after_turns: 10
+  min_confidence: 0.7
