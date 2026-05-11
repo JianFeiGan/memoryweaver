@@ -1,0 +1,34 @@
+[project]
+name = "memoryweaver"
+version = "0.1.0"
+description = "统一 Agent 记忆中枢 MCP Server"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp>=1.0.0",
+    "sqlite-utils>=3.36",
+    "chromadb>=0.4.0",
+    "openai>=1.0.0",
+    "httpx>=0.27.0",
+    "pydantic>=2.0.0",
+    "pyyaml>=6.0",
+    "python-dotenv>=1.0.0",
+    "onnxruntime>=1.16.0,<1.26.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=5.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
